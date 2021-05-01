@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+        /* Create three equal columns that floats next to each other */
+        @import url("https://fonts.googleapis.com/css?family=Nunito:400,600,700");
+
+        .rainbow {
+            background-color: #343a40;
+            border-radius: 10px;
+            color: #fff;
+            cursor: pointer;
+            padding: 8px 16px;
+        }
+
+        .rainbow-body {
+            font-family: "Nunito", sans-serif;
+            background-image: linear-gradient(to right,
+                    #e7484f,
+                    #f68b1d,
+                    #fced00,
+                    #009e4f,
+                    #00aac3,
+                    #732982);
+            animation: slidebg 4s linear infinite;
+        }
+
+        /* @keyframes slidebg {
+  to {
+    background-position:20vw;
+  }
+} */
+
+        .rainbow-5:hover {
+            background-image: linear-gradient(to right,
+                    #e7484f,
+                    #e7484f 16.65%,
+                    #f68b1d 16.65%,
+                    #f68b1d 33.3%,
+                    #fced00 33.3%,
+                    #fced00 49.95%,
+                    #009e4f 49.95%,
+                    #009e4f 66.6%,
+                    #00aac3 66.6%,
+                    #00aac3 83.25%,
+                    #732982 83.25%,
+                    #732982 100%,
+                    #e7484f 100%);
+            animation: slidebg 2s linear infinite;
+        }
+
+        @keyframes slidebg {
+            to {
+                background-position: 20vw;
+            }
+        }
+    </style>
+    <script>
+        function myFunction() {
+            var x = document.getElementById("sampleImage");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+    </script>
+</head>
+<!-- <body style="background-color:black;color: ghostwhite;"> -->
+
+<body class="rainbow-body">
+    <h2 style="text-align: center">JSON TREE Visualizer</h2>
+
+    <div class="container" style="text-align: center">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <textarea style="border-radius: 25px; padding: 20px" id="id_response" name="response" rows="50" cols="100">
+    {"data":"Paste your JSON DATA HERE!"}</textarea>
+            <div>
+                <input class="rainbow rainbow-5" type="submit" value="LET'S FIRE IT!" />
+            </div>
+        </form>
+        <button class="rainbow rainbow-5" onclick="myFunction()">
+            View Sample JSON Visualizer
+        </button>
+        <div id="sampleImage" style="display: none">
+            {% load static %}
+            <img src="{% static 'download.png' %}" alt="My image" />
+        </div>
+        <footer>
+            @develop by <a href="https://www.github.com/arunvemana">#arunvemana</a><br />
+            @email at #arunvemana@outlook.com<br />
+            @SourceCode
+            <a href="https://github.com/arunvemana/jsontoimage">#here</a>
+        </footer>
+    </div>
+</body>
+
+</html>
