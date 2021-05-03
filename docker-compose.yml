@@ -1,0 +1,11 @@
+version: '3.7'
+
+services:
+    json-visulizer:
+        build:
+            context: .
+        ports:
+            - "8686:8686"
+        volumes:
+            - .:/jsonToImg
+        command: python manage.py runserver 0.0.0.0:8686
